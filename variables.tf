@@ -13,12 +13,17 @@ variable lambda_description {
   description = "A description of what your Lambda function does"
 }
 
+variable "filename" {
+  type        = string
+  description = "The path to the function's deployment package within the local filesystem."
+}
+
 
 ## OPTIONAL
 variable policy_filepath {
   type        = string
   description = "Filepath to JSON file with IAM policy for the Lambda"
-  default     = "templates/json/defaultLambdaPolicy.json"
+  default     = "../../templates/json/defaultLambdaPolicy.json"
 }
 
 variable runtime {

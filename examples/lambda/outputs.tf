@@ -11,5 +11,5 @@ output invoke_arn {
 }
 
 output role_name {
-  value = module.lambda.lambda_role.name
+  value = module.lambda.role_name
 }

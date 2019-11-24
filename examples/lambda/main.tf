@@ -1,5 +1,5 @@
 terraform {
-  required_version = "= 0.12.13"
+  required_version = "= 0.12.16"
 }
 
 provider aws {
@@ -16,4 +16,5 @@ module lambda {
   lambda_name        = "terratest"
   handler            = "terratest"
   lambda_description = "Lambda function to test terraform-aws-lambda module"
+  filename           = "hello_world.zip"
 }
