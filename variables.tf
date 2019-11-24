@@ -18,7 +18,7 @@ variable lambda_description {
 variable policy_filepath {
   type        = string
   description = "Filepath to JSON file with IAM policy for the Lambda"
-  default     = ""
+  default     = "templates/json/defaultLambdaPolicy.json"
 }
 
 variable runtime {
