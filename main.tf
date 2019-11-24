@@ -1,3 +1,9 @@
+terraform {
+  required_version = ">= 0.12"
+  required_providers {
+    aws = ">= 2.35.0"
+  }
+  
 resource aws_lambda_function lambda {
   description   = var.lambda_description
   filename      = "../../build/${var.handler}.zip"
