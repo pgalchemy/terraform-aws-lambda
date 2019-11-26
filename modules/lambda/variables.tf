@@ -1,11 +1,12 @@
 ## REQUIRED
 variable lambda_name {
-  type = string
+  type        = string
+  description = "The name of your Lambda function"
 }
 
 variable handler {
   type        = string
-  description = "The entrypoint to your function and name of your Lambda"
+  description = "The entrypoint to your Lambda function"
 }
 
 variable lambda_description {

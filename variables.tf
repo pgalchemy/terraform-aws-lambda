@@ -1,6 +1,7 @@
 ## REQUIRED
 variable lambda_name {
   type = string
+  description
 }
 
 variable handler {
