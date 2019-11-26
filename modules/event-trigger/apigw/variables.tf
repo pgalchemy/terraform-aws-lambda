@@ -9,21 +9,7 @@ variable "name" {
 }
 
 variable "stage_name" {
-  default = "api"
-}
-
-variable "iam_role_name" {
-  description = "The name of the IAM role to attach stream policy configuration."
-  default     = ""
-}
-
-variable "function_name" {
-  description = "The ARN of the Lambda function that will be subscribing to events."
-  default     = ""
-}
-
-variable "invoke_arn" {
-  description = "The Lambda invoke uri"
+  description = "Stage name for REST api"
 }
 
 variable "rest_method" {
@@ -34,15 +20,15 @@ variable "path_part" {
   description = "Unique piece of path for this APIGW endpoint"
 }
 
-variable "rest_api_id" {
-
-}
-
-variable "parent_id" {
-
-}
-
 variable "api_version" {
-  description = "Current version of our API"
+  description = "Current version of API"
   default     = "v1"
+}
+
+variable "function_name" {
+
+}
+
+variable "invoke_arn" {
+
 }
