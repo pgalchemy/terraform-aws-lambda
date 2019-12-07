@@ -50,3 +50,25 @@ variable "event" {
   type        = map(string)
   default     = {}
 }
+
+variable rest_api {
+  description = "The API Gateway REST API Resource, required for apigw events"
+  default     = {}
+}
+
+variable version_id {
+  description = "The required version id from the API Gateway Resource"
+  type        = string
+}
+
+variable authorization_type {
+  description = "The type of authorizer to run at the API Gateway layer"
+  type        = string
+  default     = "COGNITO_USER_POOLS"
+}
+
+variable authorization_id {
+  description = "The ID from the API Gateway Authorizer resource"
+  type        = string
+  default     = ""
+}

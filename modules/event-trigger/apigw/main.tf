@@ -1,26 +1,13 @@
-resource "aws_api_gateway_rest_api" "api" {
-  count       = var.enable ? 1 : 0
-  name        = var.name
-  description = "API for ${var.name}"
-}
-
-resource aws_api_gateway_resource version {
-  count       = var.enable ? 1 : 0
-  rest_api_id = aws_api_gateway_rest_api.api[count.index].id
-  parent_id   = aws_api_gateway_rest_api.api[count.index].root_resource_id
-  path_part   = var.api_version
-}
-
 resource aws_api_gateway_resource proxy {
   count       = var.enable ? 1 : 0
-  rest_api_id = aws_api_gateway_rest_api.api[count.index].id
-  parent_id   = aws_api_gateway_resource.version[count.index].id
+  rest_api_id = var.rest_api.id
+  parent_id   = var.version_id
   path_part   = var.path_part
 }
 
 resource "aws_api_gateway_deployment" "deployment" {
   count       = var.enable ? 1 : 0
-  rest_api_id = aws_api_gateway_rest_api.api[count.index].id
+  rest_api_id = var.rest_api.id
   stage_name  = var.stage_name
 
   depends_on = [
@@ -42,7 +29,7 @@ resource aws_lambda_permission allow_api_gateway {
 
 resource aws_api_gateway_method request_method {
   count         = var.enable ? 1 : 0
-  rest_api_id   = aws_api_gateway_rest_api.api[count.index].id
+  rest_api_id   = var.rest_api.id
   resource_id   = aws_api_gateway_resource.proxy[count.index].id
   http_method   = var.rest_method
   authorization = "NONE"
@@ -50,7 +37,7 @@ resource aws_api_gateway_method request_method {
 
 resource aws_api_gateway_integration request_integration {
   count       = var.enable ? 1 : 0
-  rest_api_id = aws_api_gateway_rest_api.api[count.index].id
+  rest_api_id = var.rest_api.id
   resource_id = aws_api_gateway_method.request_method[count.index].resource_id
   http_method = aws_api_gateway_method.request_method[count.index].http_method
 

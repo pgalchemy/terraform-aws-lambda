@@ -19,7 +19,6 @@ variable "filename" {
   description = "The path to the function's deployment package within the local filesystem."
 }
 
-
 variable policy_filepath {
   type        = string
   description = "Filepath to JSON file with IAM policy for the Lambda"
@@ -41,4 +40,14 @@ variable timeout {
   type        = number
   description = "Duration of the Lambda before timeout - maximum is 15 minutes"
   default     = 60
+}
+
+variable authorization_type {
+  description = "The type of authorizer to run at the API Gateway layer"
+  type        = string
+}
+
+variable authorization_id {
+  description = "The ID from the API Gateway Authorizer resource"
+  type        = string
 }

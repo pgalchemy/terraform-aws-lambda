@@ -7,10 +7,6 @@ provider aws {
   version = ">= 2.35.0"
 }
 
-provider random {
-  version = "~> 2.1"
-}
-
 module lambda {
   source             = "../../"
   lambda_name        = "terratest"

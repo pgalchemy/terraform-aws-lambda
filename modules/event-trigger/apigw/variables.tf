@@ -4,9 +4,8 @@ variable "enable" {
   default     = false
 }
 
-variable "name" {
-  type        = string
-  description = "Name of the REST API"
+variable "rest_api" {
+  description = "The instance of the API Gateway Rest API module"
 }
 
 variable "stage_name" {
@@ -24,10 +23,9 @@ variable "path_part" {
   description = "Unique piece of path for this APIGW endpoint"
 }
 
-variable "api_version" {
+variable "version_id" {
   type        = string
   description = "Current version of API"
-  default     = "v1"
 }
 
 variable "function_name" {
