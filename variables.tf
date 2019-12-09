@@ -51,9 +51,9 @@ variable "event" {
   default     = {}
 }
 
-variable rest_api {
+variable rest_api_id {
   description = "The API Gateway REST API Resource, required for apigw events"
-  default     = {}
+  type        = string
 }
 
 variable version_id {

@@ -41,13 +41,3 @@ variable timeout {
   description = "Duration of the Lambda before timeout - maximum is 15 minutes"
   default     = 60
 }
-
-variable authorization_type {
-  description = "The type of authorizer to run at the API Gateway layer"
-  type        = string
-}
-
-variable authorization_id {
-  description = "The ID from the API Gateway Authorizer resource"
-  type        = string
-}

@@ -24,7 +24,7 @@ module lambda {
   handler            = "terratest"
   lambda_description = "Lambda function to test terraform-aws-lambda module with API Gateway"
   filename           = "hello_world.zip"
-  rest_api           = aws_api_gateway_rest_api.api
+  rest_api_id        = aws_api_gateway_rest_api.api.id
   version_id         = aws_api_gateway_resource.version.id
   authorization_type = "NONE"
 
@@ -42,7 +42,7 @@ module lambda_two {
   handler            = "terratest2"
   lambda_description = "Lambda function to test terraform-aws-lambda module with API Gateway"
   filename           = "hello_world.zip"
-  rest_api           = aws_api_gateway_rest_api.api
+  rest_api_id        = aws_api_gateway_rest_api.api.id
   version_id         = aws_api_gateway_resource.version.id
   authorization_type = "NONE"
 

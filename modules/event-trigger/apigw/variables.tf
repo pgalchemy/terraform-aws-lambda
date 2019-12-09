@@ -4,7 +4,8 @@ variable "enable" {
   default     = false
 }
 
-variable "rest_api" {
+variable "rest_api_id" {
+  type        = string
   description = "The instance of the API Gateway Rest API module"
 }
 
@@ -36,4 +37,14 @@ variable "function_name" {
 variable "invoke_arn" {
   type        = string
   description = "Invoke arn of the related Lambda"
+}
+
+variable authorization_type {
+  description = "The type of authorizer to run at the API Gateway layer"
+  type        = string
+}
+
+variable authorization_id {
+  description = "The ID from the API Gateway Authorizer resource"
+  type        = string
 }
