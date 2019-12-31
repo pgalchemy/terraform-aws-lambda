@@ -19,6 +19,10 @@ variable "filename" {
   description = "The path to the function's deployment package within the local filesystem."
 }
 
+variable region {
+  description = "AWS Region to deploy to, this is necessary to deploy the same lambda to different regions and avoid role collision"
+  type        = string
+}
 
 ## OPTIONAL
 variable policy_filepath {
@@ -45,7 +49,7 @@ variable timeout {
   default     = 60
 }
 
-variable "event" {
+variable event {
   description = "Event source configuration which triggers the Lambda function. Supported events: apigw"
   type        = map(string)
   default     = {}
@@ -71,9 +75,4 @@ variable authorization_id {
   description = "The ID from the API Gateway Authorizer resource"
   type        = string
   default     = ""
-}
-
-variable region {
-  description = "AWS Region to deploy to, this is necessary to deploy the same lambda to different regions and avoid role collision"
-  type        = string
 }

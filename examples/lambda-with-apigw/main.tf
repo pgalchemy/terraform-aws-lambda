@@ -7,7 +7,7 @@ provider aws {
   version = ">= 2.35.0"
 }
 
-resource "aws_api_gateway_rest_api" "api" {
+resource aws_api_gateway_rest_api api {
   name        = "My Rest API"
   description = "terratest"
 }

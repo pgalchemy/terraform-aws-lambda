@@ -5,13 +5,14 @@ resource aws_api_gateway_resource proxy {
   path_part   = var.path_part
 }
 
-resource "aws_api_gateway_deployment" "deployment" {
+resource aws_api_gateway_deployment deployment {
   count       = var.enable ? 1 : 0
   rest_api_id = var.rest_api_id
   stage_name  = var.stage_name
 
   depends_on = [
-    aws_api_gateway_integration.request_integration,
+    aws_api_gateway_method.request_method,
+    aws_api_gateway_integration.request_integration
   ]
 }
 
