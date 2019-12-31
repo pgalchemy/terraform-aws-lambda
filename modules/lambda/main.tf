@@ -20,7 +20,7 @@ resource aws_lambda_function lambda {
 }
 
 resource aws_iam_role lambda_role {
-  name = "${var.lambda_name}_role"
+  name = "${var.lambda_name}_role_${var.region}"
 
   assume_role_policy = <<EOF
 {

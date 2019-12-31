@@ -41,3 +41,8 @@ variable timeout {
   description = "Duration of the Lambda before timeout - maximum is 15 minutes"
   default     = 60
 }
+
+variable region {
+  type        = string
+  description = "AWS Region to deploy to, this is necessary to deploy the same lambda to different regions and avoid role collision"
+}

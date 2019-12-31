@@ -72,3 +72,8 @@ variable authorization_id {
   type        = string
   default     = ""
 }
+
+variable region {
+  description = "AWS Region to deploy to, this is necessary to deploy the same lambda to different regions and avoid role collision"
+  type        = string
+}
