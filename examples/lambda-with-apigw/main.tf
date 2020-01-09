@@ -27,6 +27,7 @@ module lambda {
   rest_api_id        = aws_api_gateway_rest_api.api.id
   version_id         = aws_api_gateway_resource.version.id
   authorization_type = "NONE"
+  region             = "us-east-1"
 
   event = {
     type        = "apigw"
@@ -45,11 +46,50 @@ module lambda_two {
   rest_api_id        = aws_api_gateway_rest_api.api.id
   version_id         = aws_api_gateway_resource.version.id
   authorization_type = "NONE"
+  region             = "us-east-1"
 
   event = {
     type        = "apigw"
     stage_name  = "api"
     rest_method = "POST"
     path_part   = "helloWorld2"
+  }
+}
+
+module lambda_three {
+  source             = "../../"
+  lambda_name        = "terratest3"
+  handler            = "terratest3"
+  lambda_description = "Lambda function to test terraform-aws-lambda module with API Gateway"
+  filename           = "hello_world.zip"
+  rest_api_id        = aws_api_gateway_rest_api.api.id
+  version_id         = aws_api_gateway_resource.version.id
+  authorization_type = "NONE"
+  region             = "us-east-1"
+
+  event = {
+    type        = "apigw"
+    stage_name  = "api"
+    rest_method = "GET"
+    path_part   = "helloWorld2"
+  }
+}
+
+module lambda_four {
+  source             = "../../"
+  lambda_name        = "terratest4"
+  handler            = "terratest4"
+  lambda_description = "Lambda function to test terraform-aws-lambda module with API Gateway"
+  filename           = "hello_world.zip"
+  rest_api_id        = aws_api_gateway_rest_api.api.id
+  version_id         = aws_api_gateway_resource.version.id
+  authorization_type = "NONE"
+  region             = "us-east-1"
+
+  event = {
+    type        = "apigw"
+    stage_name  = "api"
+    rest_method = "PUT"
+    path_part   = "helloWorld"
   }
 }
