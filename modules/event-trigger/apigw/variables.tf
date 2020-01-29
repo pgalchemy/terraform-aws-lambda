@@ -52,4 +52,5 @@ variable authorization_id {
 variable api_key_required {
   description = "Boolean indicating whther the method requires and API Key"
   type = bool
+  value = false
 }
