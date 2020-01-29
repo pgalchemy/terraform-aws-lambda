@@ -29,12 +29,12 @@ resource aws_lambda_permission allow_api_gateway {
 }
 
 resource aws_api_gateway_method request_method {
-  count         = var.enable ? 1 : 0
-  rest_api_id   = var.rest_api_id
-  resource_id   = aws_api_gateway_resource.proxy[count.index].id
-  http_method   = var.rest_method
-  authorization = var.authorization_type
-  authorizer_id = var.authorization_id
+  count            = var.enable ? 1 : 0
+  rest_api_id      = var.rest_api_id
+  resource_id      = aws_api_gateway_resource.proxy[count.index].id
+  http_method      = var.rest_method
+  authorization    = var.authorization_type
+  authorizer_id    = var.authorization_id
   api_key_required = var.api_key_required
 }
 
