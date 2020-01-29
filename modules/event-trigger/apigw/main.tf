@@ -35,6 +35,7 @@ resource aws_api_gateway_method request_method {
   http_method   = var.rest_method
   authorization = var.authorization_type
   authorizer_id = var.authorization_id
+  api_key_required = var.api_key_required
 }
 
 resource aws_api_gateway_integration request_integration {
