@@ -25,4 +25,5 @@ module event-trigger-apigw {
   invoke_arn         = module.lambda.invoke_arn
   authorization_id   = var.authorization_id
   authorization_type = var.authorization_type
+  api_key_required   = var.api_key_required
 }

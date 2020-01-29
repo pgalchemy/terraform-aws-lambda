@@ -48,3 +48,9 @@ variable authorization_id {
   description = "The ID from the API Gateway Authorizer resource"
   type        = string
 }
+
+variable api_key_required {
+  description = "Boolean indicating whether the method requires an API Key"
+  type        = bool
+  default     = false
+}
