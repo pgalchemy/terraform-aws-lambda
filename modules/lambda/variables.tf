@@ -46,3 +46,9 @@ variable region {
   type        = string
   description = "AWS Region to deploy to, this is necessary to deploy the same lambda to different regions and avoid role collision"
 }
+
+variable "environment" {
+  description = "Environment (e.g. env variables) configuration for the Lambda function enable you to dynamically pass settings to your function code and libraries"
+  type        = map(map(string))
+  default     = {}
+}

@@ -82,3 +82,9 @@ variable api_key_required {
   type        = bool
   default     = false
 }
+
+variable "environment" {
+  description = "Environment (e.g. env variables) configuration for the Lambda function enable you to dynamically pass settings to your function code and libraries"
+  type        = map(map(string))
+  default     = {}
+}

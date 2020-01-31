@@ -9,7 +9,9 @@ module lambda {
   lambda_description = var.lambda_description
   filename           = var.filename
   region             = var.region
+  environment        = var.environment
   policy_filepath    = var.policy_filepath != "" ? var.policy_filepath : "${path.module}/templates/defaultLambdaPolicy.json"
+
 }
 
 module event-trigger-apigw {

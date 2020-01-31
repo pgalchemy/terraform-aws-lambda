@@ -13,4 +13,12 @@ module lambda {
   handler            = "terratest"
   lambda_description = "Lambda function to test terraform-aws-lambda module"
   filename           = "hello_world.zip"
+  region             = "us-east-1"
+  rest_api_id        = ""
+  version_id         = ""
+  environment = {
+    variables = {
+      loglevel = "INFO"
+    }
+  }
 }
