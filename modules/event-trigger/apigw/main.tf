@@ -1,3 +1,7 @@
+locals {
+  count = var.enable ? 1 : 0
+}
+
 resource aws_api_gateway_resource proxy {
   count       = var.enable ? 1 : 0
   rest_api_id = var.rest_api_id
@@ -50,11 +54,10 @@ resource aws_api_gateway_integration request_integration {
 }
 
 module "cors" {
-  count   = var.enable ? 1 : 0
   source  = "squidfunk/api-gateway-enable-cors/aws"
   version = "0.3.1"
 
   api_id            = var.rest_api_id
-  api_resource_id   = aws_api_gateway_method.request_method[count.index].resource_id
+  api_resource_id   = aws_api_gateway_method.request_method[local.count].resource_id
   allow_credentials = true
 }
