@@ -50,6 +50,7 @@ resource aws_api_gateway_integration request_integration {
 }
 
 module "cors" {
+  count   = var.enable ? 1 : 0
   source  = "squidfunk/api-gateway-enable-cors/aws"
   version = "0.3.1"
 
