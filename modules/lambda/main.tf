@@ -17,6 +17,7 @@ resource aws_lambda_function lambda {
   runtime     = var.runtime
   memory_size = var.memory_size
   timeout     = var.timeout
+  layers      = var.layers
   dynamic "environment" {
     for_each = length(var.environment) < 1 ? [] : [var.environment]
     content {
