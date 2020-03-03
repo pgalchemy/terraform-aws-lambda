@@ -4,7 +4,7 @@ terraform {
 
 provider aws {
   region  = "us-east-1"
-  version = ">= 2.35.0"
+  version = ">= 2.51.0"
 }
 
 resource "aws_lambda_layer_version" "test_layer" {
