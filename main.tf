@@ -11,7 +11,7 @@ module lambda {
   region             = var.region
   environment        = var.environment
   policy_filepath    = var.policy_filepath != "" ? var.policy_filepath : "${path.module}/templates/defaultLambdaPolicy.json"
-
+  layers             = var.layers
 }
 
 module event-trigger-apigw {
