@@ -7,7 +7,7 @@ provider aws {
   version = ">= 2.51.0"
 }
 
-resource "aws_lambda_layer_version" "test_layer" {
+resource aws_lambda_layer_version test_layer {
   filename   = "test_layer.zip"
   layer_name = "test_layer"
 
