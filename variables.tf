@@ -58,11 +58,13 @@ variable event {
 variable rest_api_id {
   description = "The API Gateway REST API Resource, required for apigw events"
   type        = string
+  default     = ""
 }
 
 variable version_id {
   description = "The required version id from the API Gateway Resource"
   type        = string
+  default     = ""
 }
 
 variable authorization_type {
