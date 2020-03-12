@@ -54,10 +54,11 @@ resource aws_api_gateway_integration request_integration {
 }
 
 module "cors" {
-  source  = "squidfunk/api-gateway-enable-cors/aws"
-  version = "0.3.1"
+  source = "github.com/pgalchemy/terraform-aws-api-gateway-enable-cors"
+  version = "0.3.2"
 
   api_id            = var.rest_api_id
   api_resource_id   = aws_api_gateway_method.request_method[0].resource_id
   allow_credentials = true
+  enable = var.enable
 }
