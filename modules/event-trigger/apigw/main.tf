@@ -1,5 +1,4 @@
 locals {
-  count        = var.enable ? 1 : 0
   api_resource = var.enable ? aws_api_gateway_method.request_method[0].resource_id : ""
 }
 
@@ -58,7 +57,7 @@ module "cors" {
   source = "github.com/pgalchemy/terraform-aws-api-gateway-enable-cors?ref=0.3.2"
 
   api_id            = var.rest_api_id
-  api_resource_id   = locals.api_resource
+  api_resource_id   = local.api_resource
   allow_credentials = true
   enable            = var.enable
 }
