@@ -96,3 +96,9 @@ variable "layers" {
   type        = list
   default     = []
 }
+
+variable honeycomb_arn {
+  type        = string
+  description = "The ARN of the Lambda that pipes logs into Honeycomb"
+  default     = ""
+}

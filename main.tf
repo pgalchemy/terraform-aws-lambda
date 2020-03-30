@@ -12,6 +12,7 @@ module lambda {
   environment        = var.environment
   policy_filepath    = var.policy_filepath != "" ? var.policy_filepath : "${path.module}/templates/defaultLambdaPolicy.json"
   layers             = var.layers
+  honeycomb_arn      = var.honeycomb_arn
 }
 
 module event-trigger-apigw {
