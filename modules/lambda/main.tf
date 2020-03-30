@@ -54,3 +54,19 @@ resource aws_iam_role_policy lambda_policy {
   policy = templatefile(var.policy_filepath, {})
 
 }
+
+resource aws_cloudwatch_log_group log_group {
+  count = var.honeycomb_arn != "" ? 1 : 0
+  name  = "/aws/lambda/${var.lambda_name}_lambda"
+}
+
+resource aws_cloudwatch_log_subscription_filter cloudwatch_subscription_filter {
+  count = var.honeycomb_arn != "" ? 1 : 0
+  depends_on = [
+    aws_cloudwatch_log_group.log_group[0]
+  ]
+  name            = "${var.lambda_name}-lambda-log-group-subscription"
+  log_group_name  = "/aws/lambda/${var.lambda_name}_lambda"
+  filter_pattern  = ""
+  destination_arn = var.honeycomb_arn
+}
