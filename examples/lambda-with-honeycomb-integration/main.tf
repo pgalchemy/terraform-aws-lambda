@@ -24,7 +24,6 @@ module honeycomb {
 }
 
 module lambda {
-  depends_on = module.honeycomb
   source             = "../../"
   lambda_name        = "terratest2"
   handler            = "terratest2"
@@ -33,6 +32,7 @@ module lambda {
   region             = "us-east-1"
   rest_api_id        = ""
   version_id         = ""
+  enable_honeycomb   = true
   honeycomb_arn      = module.honeycomb.arn
   environment = {
     variables = {
