@@ -60,6 +60,14 @@ resource aws_cloudwatch_log_group log_group {
   name  = "/aws/lambda/${var.lambda_name}_lambda"
 }
 
+resource aws_lambda_permission allow_cloudwatch {
+  count         = var.enable_honeycomb != false ? 1 : 0
+  statement_id  = "allow_cloudwatch"
+  action        = "lambda:InvokeFunction"
+  function_name = var.honeycomb_arn
+  principal     = "logs.${var.region}.amazonaws.com"
+  source_arn    = aws_cloudwatch_log_group.log_group[0].arn
+}
 resource aws_cloudwatch_log_subscription_filter cloudwatch_subscription_filter {
   count = var.honeycomb_arn != "" ? 1 : 0
   depends_on = [
