@@ -97,6 +97,12 @@ variable "layers" {
   default     = []
 }
 
+variable "enable_honeycomb" {
+  type    = bool
+  description = "Enable logging to Honeycomb for this function"
+  default = false
+}
+
 variable honeycomb_arn {
   type        = string
   description = "The ARN of the Lambda that pipes logs into Honeycomb"
