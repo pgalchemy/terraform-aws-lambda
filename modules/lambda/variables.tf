@@ -14,7 +14,7 @@ variable lambda_description {
   description = "A description of what your Lambda function does"
 }
 
-variable "filename" {
+variable filename {
   type        = string
   description = "The path to the function's deployment package within the local filesystem."
 }
@@ -47,14 +47,20 @@ variable region {
   description = "AWS Region to deploy to, this is necessary to deploy the same lambda to different regions and avoid role collision"
 }
 
-variable "environment" {
+variable environment {
   description = "Environment (e.g. env variables) configuration for the Lambda function enable you to dynamically pass settings to your function code and libraries"
   type        = map(map(string))
   default     = {}
 }
 
-variable "layers" {
+variable layers {
   description = "List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function"
   type        = list
   default     = []
+}
+
+variable reserved_concurrent_executions {
+  description = "Number of reserved executions for this Lambda Function"
+  type        = number
+  default     = -1
 }
