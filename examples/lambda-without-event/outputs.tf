@@ -13,3 +13,7 @@ output invoke_arn {
 output role_name {
   value = module.lambda.role_name
 }
+
+output function_version {
+  value = module.lambda.function_version
+}

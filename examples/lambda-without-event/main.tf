@@ -17,6 +17,7 @@ module lambda {
   region                         = "us-east-1"
   rest_api_id                    = ""
   version_id                     = ""
+  publish                        = true
   reserved_concurrent_executions = 2
   environment = {
     variables = {
