@@ -18,6 +18,7 @@ resource aws_lambda_function lambda {
   memory_size                    = var.memory_size
   timeout                        = var.timeout
   layers                         = var.layers
+  publish                        = var.publish
   reserved_concurrent_executions = var.reserved_concurrent_executions
   dynamic "environment" {
     for_each = length(var.environment) < 1 ? [] : [var.environment]
