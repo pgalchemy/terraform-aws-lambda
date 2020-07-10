@@ -14,10 +14,11 @@ resource aws_lambda_function lambda {
 
   source_code_hash = filebase64sha256(var.filename)
 
-  runtime     = var.runtime
-  memory_size = var.memory_size
-  timeout     = var.timeout
-  layers      = var.layers
+  runtime                        = var.runtime
+  memory_size                    = var.memory_size
+  timeout                        = var.timeout
+  layers                         = var.layers
+  reserved_concurrent_executions = var.reserved_concurrent_executions
   dynamic "environment" {
     for_each = length(var.environment) < 1 ? [] : [var.environment]
     content {
