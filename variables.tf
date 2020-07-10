@@ -102,3 +102,9 @@ variable reserved_concurrent_executions {
   type        = number
   default     = -1
 }
+
+variable publish {
+  description = "Whether to publish creation/change as new Lambda Function Version"
+  type        = bool
+  default     = false
+}
