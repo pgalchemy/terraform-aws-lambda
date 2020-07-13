@@ -17,3 +17,8 @@ output role_name {
   description = "The name of the IAM attached to the Lambda Function."
   value       = aws_iam_role.lambda_role.name
 }
+
+output function_version {
+  description = "The latest published version of the Lambda Function."
+  value       = aws_lambda_function.lambda.version
+}

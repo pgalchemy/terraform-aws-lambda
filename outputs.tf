@@ -17,3 +17,8 @@ output role_name {
   description = "The name of the IAM role attached to the Lambda Function."
   value       = module.lambda.role_name
 }
+
+output function_version {
+  description = "The latest published version of the Lambda Function."
+  value       = module.lambda.function_version
+}

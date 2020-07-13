@@ -13,6 +13,7 @@ module lambda {
   environment                    = var.environment
   policy_filepath                = var.policy_filepath != "" ? var.policy_filepath : "${path.module}/templates/defaultLambdaPolicy.json"
   layers                         = var.layers
+  publish                        = var.publish
   reserved_concurrent_executions = var.reserved_concurrent_executions
 }
 
