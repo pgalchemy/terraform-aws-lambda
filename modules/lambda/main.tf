@@ -6,13 +6,16 @@ terraform {
 }
 
 resource aws_lambda_function lambda {
-  description   = var.lambda_description
-  filename      = var.filename
-  function_name = "${var.lambda_name}_lambda"
-  role          = aws_iam_role.lambda_role.arn
-  handler       = var.handler
+  description       = var.lambda_description
+  filename          = var.s3_bucket == "" ? var.filename : null
+  s3_bucket         = var.filename == "" ? var.s3_bucket : null
+  s3_key            = var.filename == "" ? var.s3_key : null
+  s3_object_version = var.filename == "" ? var.s3_object_version : null
+  function_name     = "${var.lambda_name}_lambda"
+  role              = aws_iam_role.lambda_role.arn
+  handler           = var.handler
 
-  source_code_hash = filebase64sha256(var.filename)
+  source_code_hash = var.s3_bucket == "" ? filebase64sha256(var.filename) : null
 
   runtime                        = var.runtime
   memory_size                    = var.memory_size
