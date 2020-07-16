@@ -34,7 +34,6 @@ module lambda {
   region             = "us-east-1"
   rest_api_id        = ""
   version_id         = ""
-  publish            = false
   environment = {
     variables = {
       loglevel = "INFO"
