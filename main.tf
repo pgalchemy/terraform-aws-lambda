@@ -9,6 +9,9 @@ module lambda {
   handler                        = var.handler
   lambda_description             = var.lambda_description
   filename                       = var.filename
+  s3_bucket                      = var.s3_bucket
+  s3_key                         = var.s3_key
+  s3_object_version              = var.s3_object_version
   region                         = var.region
   environment                    = var.environment
   policy_filepath                = var.policy_filepath != "" ? var.policy_filepath : "${path.module}/templates/defaultLambdaPolicy.json"
