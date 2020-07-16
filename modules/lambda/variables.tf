@@ -14,14 +14,33 @@ variable lambda_description {
   description = "A description of what your Lambda function does"
 }
 
-variable filename {
-  type        = string
-  description = "The path to the function's deployment package within the local filesystem."
-}
-
 variable policy_filepath {
   type        = string
   description = "Filepath to JSON file with IAM policy for the Lambda"
+}
+
+variable filename {
+  type        = string
+  description = "The path to the function's deployment package within the local filesystem. Cannot be used with s3_ fields"
+  default     = ""
+}
+
+variable s3_bucket {
+  type        = string
+  description = "The S3 bucket storing the function's deployment package. Cannot be used with filename."
+  default     = ""
+}
+
+variable s3_key {
+  type        = string
+  description = "The S3 key of the function's deployment package. Cannot be used with filename."
+  default     = ""
+}
+
+variable s3_object_version {
+  type        = string
+  description = "The object version of the function's deployment package. Cannot be used with filename."
+  default     = ""
 }
 
 variable runtime {

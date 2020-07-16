@@ -43,6 +43,7 @@ variable s3_object_version {
   description = "The object version of the function's deployment package. Cannot be used with filename."
   default     = ""
 }
+
 variable policy_filepath {
   type        = string
   description = "Filepath to JSON file with IAM policy for the Lambda"
