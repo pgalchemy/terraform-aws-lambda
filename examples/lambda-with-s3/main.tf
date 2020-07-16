@@ -26,16 +26,15 @@ resource aws_s3_bucket_object key {
 module lambda {
   source = "../../"
 
-  lambda_name                    = "terratest"
-  handler                        = "terratest"
-  lambda_description             = "Lambda function to test terraform-aws-lambda module"
-  s3_bucket                      = local.bucket_name
-  s3_key                         = aws_s3_bucket_object.key.key
-  region                         = "us-east-1"
-  rest_api_id                    = ""
-  version_id                     = ""
-  publish                        = false
-  reserved_concurrent_executions = 2
+  lambda_name        = "terratest"
+  handler            = "terratest"
+  lambda_description = "Lambda function to test terraform-aws-lambda module"
+  s3_bucket          = local.bucket_name
+  s3_key             = aws_s3_bucket_object.key.key
+  region             = "us-east-1"
+  rest_api_id        = ""
+  version_id         = ""
+  publish            = false
   environment = {
     variables = {
       loglevel = "INFO"
