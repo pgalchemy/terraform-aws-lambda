@@ -89,3 +89,9 @@ variable publish {
   type        = bool
   default     = false
 }
+
+variable source_code_hash {
+  description = "Source code hash to use for the Lambda function."
+  type        = string
+  default     = ""
+}

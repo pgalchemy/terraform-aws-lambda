@@ -18,6 +18,7 @@ module lambda {
   layers                         = var.layers
   publish                        = var.publish
   reserved_concurrent_executions = var.reserved_concurrent_executions
+  source_code_hash               = var.source_code_hash
 }
 
 module event-trigger-apigw {

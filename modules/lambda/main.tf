@@ -15,7 +15,7 @@ resource aws_lambda_function lambda {
   role              = aws_iam_role.lambda_role.arn
   handler           = var.handler
 
-  source_code_hash = var.s3_bucket == "" ? filebase64sha256(var.filename) : null
+  source_code_hash = var.source_code_hash != "" ? var.source_code_hash : null
 
   runtime                        = var.runtime
   memory_size                    = var.memory_size
