@@ -2,7 +2,7 @@ locals {
   default_policy = "${path.module}/templates/defaultLambdaPolicy.json"
 }
 
-module lambda {
+module "lambda" {
   source = "./modules/lambda"
 
   lambda_name                    = var.lambda_name
@@ -19,9 +19,11 @@ module lambda {
   publish                        = var.publish
   reserved_concurrent_executions = var.reserved_concurrent_executions
   source_code_hash               = var.source_code_hash
+  memory_size                    = var.memory_size
+  timeout                        = var.timeout
 }
 
-module event-trigger-apigw {
+module "event-trigger-apigw" {
   source = "./modules/event-trigger/apigw"
   enable = lookup(var.event, "type", "") == "apigw" ? true : false
 
