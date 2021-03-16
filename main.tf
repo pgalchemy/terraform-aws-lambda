@@ -21,6 +21,10 @@ module "lambda" {
   source_code_hash               = var.source_code_hash
   memory_size                    = var.memory_size
   timeout                        = var.timeout
+  subnet_ids                     = var.subnet_ids
+  security_group_ids             = var.security_group_ids
+  file_system_config_arn         = var.file_system_config_arn
+  local_mount_path               = var.local_mount_path
 }
 
 module "event-trigger-apigw" {
