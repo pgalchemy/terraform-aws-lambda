@@ -95,3 +95,27 @@ variable source_code_hash {
   type        = string
   default     = ""
 }
+
+variable security_group_ids {
+  description = "Security group ids"
+  type        = list
+  default     = []
+}
+
+variable subnet_ids {
+  description = "Subnet ids"
+  type        = list
+  default     = []
+}
+
+variable file_system_config_arn {
+  description = "EFS file system access point ARN"
+  type        = string
+  default     = ""
+}
+
+variable local_mount_path {
+  description = "Local mount path inside the lambda function. Must start with '/mnt/'"
+  type        = string
+  default     = ""
+}

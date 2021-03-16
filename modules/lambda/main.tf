@@ -30,6 +30,25 @@ resource aws_lambda_function lambda {
       variables = environment.value.variables
     }
   }
+
+  // Only create vpc_config block if var.security_group_ids has a value
+  dynamic "vpc_config" {
+    for_each = var.security_group_ids[0] == "" ? [] : [1]
+    content {
+      security_group_ids = var.security_group_ids
+      subnet_ids         = var.subnet_ids
+    }
+  }
+
+  // Only create file_system_config block if var.file_system_config has a value
+  dynamic "file_system_config" {
+    for_each = var.file_system_config_arn == "" ? [] : [1]
+    content {
+      arn              = var.file_system_config_arn
+      local_mount_path = var.local_mount_path
+    }
+  }
+
 }
 
 resource aws_iam_role lambda_role {
