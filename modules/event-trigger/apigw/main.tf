@@ -54,7 +54,7 @@ resource aws_api_gateway_integration request_integration {
 }
 
 module "cors" {
-  source = "github.com/pgalchemy/terraform-aws-api-gateway-enable-cors?ref=0.3.2"
+  source = "github.com/pgalchemy/terraform-aws-api-gateway-enable-cors?ref=0.3.3"
 
   api_id            = var.rest_api_id
   api_resource_id   = local.api_resource
