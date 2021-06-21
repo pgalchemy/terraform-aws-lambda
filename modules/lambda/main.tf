@@ -33,7 +33,7 @@ resource aws_lambda_function lambda {
 
   // Only create vpc_config block if var.security_group_ids has a value
   dynamic "vpc_config" {
-    for_each = var.security_group_ids[0] == "" ? [] : [1]
+    for_each = length(var.security_group_ids) == 0 ? [] : [1]
     content {
       security_group_ids = var.security_group_ids
       subnet_ids         = var.subnet_ids
